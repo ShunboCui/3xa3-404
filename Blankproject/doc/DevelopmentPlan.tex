@@ -126,9 +126,15 @@ Development Plan for Snake-Game(remake) project. This document specifies the gui
     Leader of the meeting is in charge of gathering files from team members and upload work to gitlab.\\
     \includegraphics[width=12cm, height=16cm]{GitWorkFlow.png} 
 \section{Proof of Concept Demonstration Plan}
-
+    The most challenging part in the implementation is the modification of the game complexity. The mechanism of original game is simple, since it only contains an empty map and a character controlled by the player. We will introduce a new operation mechanism to the game. The snake will stay at the center of the screen, while the map moves relative to the snake. To achieve this we need to modify the operation logic in the GameBoardPanel class. If the head of the snake remains at the center and the map is always able to move in the reverse direction of the player's input, the implementation is valid.\\
+    Another feature being added to the game is the boosting item generation. This will also need to be implemented in the map class as an attribute for each map. As a result of consuming the items, the snake will gain temporary buff, which will be an additional attribute of the snake class. The function meets the requirement if the buff starts as the head of snake reaches the location of the item, and the buff ends automatically after some fixed time period. Java can support all these additional functions in less than 10 classes.
 \section{Technology}
-
+    \begin{enumerate}
+        \item The whole project will be implemented in Java.
+        \item Eclipse will be used as IDE for the project.
+        \item JUnit will be used for testing each modules.
+        \item We will keep using LaTeX for the following documentations.
+    \end{enumerate}
 \section{Coding Style}
 
 \section{Project Schedule}
