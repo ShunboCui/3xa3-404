@@ -8,7 +8,7 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=cyan,
 }
 
@@ -52,7 +52,7 @@ Development Plan for Snake-Game(remake) project. This document specifies the gui
     \item If more meeting is needed, meeting date, time and location should be discussed and agreed by all team members through \textbf{wechat}
 \end{enumerate}
 \subsection{roles}
-    
+
     \begin{tabular}{ |l|l| }
         \toprule
         \textbf{NAME} & \textbf{role} \\
@@ -76,11 +76,11 @@ Development Plan for Snake-Game(remake) project. This document specifies the gui
         \rowcolor[HTML]{C0C0C0}
         \textbf{TIME and DURATION} & \textbf{TOPIC} & \textbf{MEETING RESULT} & \textbf{MEMBERS' DUTY} \\ \hline
         Jan 30, 12.30-14.20 & Development Pan & Fully understand the content of development plan and distribute work to each team member.(Shuo leads the meeting) & Each person in team should finish their work by Friday afternoon and pass their work to the meeting leader. Leader takes responsibility to upload files to gitlab.  \\
-        
-        
+
+
         \rowcolor[HTML]{C0C0C0}
         \textbf{(The content below may be edited before each meeting starts)} & - & - & - \\
-        
+
         \hline
         Feb 3, 12.30-14.20 & Requirements Document Revision & Figure out requirements for Snake-Game(remake). (Xiangxin leads the meeting) & by the next meeting, basic requirments(FR and NFR) for the game should be decided. Recorder is in charge of recording the \\
         \hline
@@ -130,19 +130,20 @@ Development Plan for Snake-Game(remake) project. This document specifies the gui
     There will be a leader of meeting for each topic of the project. The recorder is the scribe. Everyone in team should learn to use Git and LaTeX and any technology that is used in this project. Each team member is supposed to help each other and become the expert on Documentation, LaTeX, etc... by the end of term.
 \section{Git Workflow Plan}
     Leader of the meeting is in charge of gathering files from team members and upload work to gitlab.\\
-    \includegraphics[width=12cm, height=16cm]{GitWorkFlow.png} 
+    \includegraphics[width=12cm, height=16cm]{GitWorkFlow.png}
 \section{Proof of Concept Demonstration Plan}
     The most challenging part in the implementation is the modification of the game complexity. The mechanism of original game is simple, since it only contains an empty map and a character controlled by the player. We will introduce a new operation mechanism to the game. The snake will stay at the center of the screen, while the map moves relative to the snake. To achieve this we need to modify the operation logic in the GameBoardPanel class. If the head of the snake remains at the center and the map is always able to move in the reverse direction of the player's input, the implementation is valid.\\
-    Another feature being added to the game is the boosting item generation. This will also need to be implemented in the map class as an attribute for each map. As a result of consuming the items, the snake will gain temporary buff, which will be an additional attribute of the snake class. The function meets the requirement if the buff starts as the head of snake reaches the location of the item, and the buff ends automatically after some fixed time period. Java can support all these additional functions in less than 10 classes.
+    Another feature being added to the game is the boosting item generation. This will also need to be implemented in the map class as an attribute for each map. As a result of consuming the items, the snake will gain temporary buff, which will be an additional attribute of the snake class. The function meets the requirement if the buff starts as the head of snake reaches the location of the item, and the buff ends automatically after some fixed time period. Java can support all these additional functions in less than 10 classes. \\
+    The project is a light-weighted Java program and it does not require high performance of the personal computer. The only required library is Java which is available on most computer system. The game will be able to run on any computer with Java terminal so it has high capability. We will use JUnit for the testing of the game. The possible game events and operations will be covered in the test.
 \section{Technology}
     \begin{enumerate}
-        \item The whole project will be implemented in Java.
+        \item The whole project will be implemented in Java. Game functions including the game board panel, snake, input manager will be implemented in different modules.
         \item Eclipse will be used as IDE for the project.
         \item JUnit will be used for testing each modules.
         \item We will keep using LaTeX for the following documentations.
     \end{enumerate}
 \section{Coding Style}
-This project adapt the coding style similar to Oracle's Java code conventions. Each Java source file contains a single public class or interface. All source files should begin with copyright notice and a brief description of the purpose of the program. Only one declaration per line is encouraged. Never declare variables and functions or different types on the same line.Put declarations at the beginning of blocks rather than until their first use. For the naming converntion, all instance names are in mixed case with a lowercase first letter. Internal words start with capital letters. Constant name should be all uppercase with words separated by underscores “\_”. 
+This project adapt the coding style similar to Oracle's Java code conventions. Each Java source file contains a single public class or interface. All source files should begin with copyright notice and a brief description of the purpose of the program. Only one declaration per line is encouraged. Never declare variables and functions or different types on the same line.Put declarations at the beginning of blocks rather than until their first use. For the naming converntion, all instance names are in mixed case with a lowercase first letter. Internal words start with capital letters. Constant name should be all uppercase with words separated by underscores “\_”.
 \section{Project Schedule}
 
 Provide a pointer to your Gantt Chart.
