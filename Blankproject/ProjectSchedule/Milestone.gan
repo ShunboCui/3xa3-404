@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2020-01-14" view-index="0" gantt-divider-location="288" resource-divider-location="300" version="2.8.10" locale="zh_CN">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="名称" width="160" order="0"/>
+        <field id="tpd4" name="开始日期" width="62" order="1"/>
+        <field id="tpd5" name="结束日期" width="62" order="2"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="名称" width="210" order="0"/>
+        <field id="1" name="默认角色" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Develoment Plan" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-30" thirdDate-constraint="0" expand="true">
+            <task id="25" name="Team meeting plan" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-28" thirdDate-constraint="0" expand="true"/>
+            <task id="26" name="Team communication plan" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-28" thirdDate-constraint="0" expand="true"/>
+            <task id="30" name="Team member roles" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-20" thirdDate-constraint="0" expand="true"/>
+            <task id="37" name="Git workflow plan" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-14" thirdDate-constraint="0" expand="true"/>
+            <task id="39" name="Proof of concept demonstration plan" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-14" thirdDate-constraint="0" expand="true"/>
+            <task id="41" name="Technology" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-14" thirdDate-constraint="0" expand="true"/>
+            <task id="43" name="Coding style" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-14" thirdDate-constraint="0" expand="true"/>
+            <task id="46" name="Project schedule" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-14" thirdDate-constraint="0" expand="true"/>
+            <task id="48" name="Project review" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-14" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="4" name="Requirements Document Revision 0" color="#8cb6ce" meeting="false" start="2020-02-03" duration="4" complete="0" thirdDate="2020-01-30" thirdDate-constraint="0" expand="true"/>
+        <task id="7" name="Proof of Concept Demonstration" color="#8cb6ce" meeting="false" start="2020-02-13" duration="6" complete="0" thirdDate="2020-01-28" thirdDate-constraint="0" expand="true"/>
+        <task id="8" name="Test Plan Revision 0" color="#8cb6ce" meeting="false" start="2020-02-07" duration="15" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="true"/>
+        <task id="11" name="Desigon &amp; Document Recision 0" color="#8cb6ce" meeting="false" start="2020-02-28" duration="10" complete="0" thirdDate="2020-02-24" thirdDate-constraint="0" expand="true"/>
+        <task id="14" name="Revision 0 Demonstration" color="#8cb6ce" meeting="false" start="2020-03-16" duration="6" complete="0" thirdDate="2020-03-04" thirdDate-constraint="0" expand="true"/>
+        <task id="16" name="Final Demonstration (Revision 1)" color="#8cb6ce" meeting="false" start="2020-03-30" duration="5" complete="0" thirdDate="2020-03-09" thirdDate-constraint="0" expand="true"/>
+        <task id="18" name="Final Documentation (Recision 1)" color="#8cb6ce" meeting="false" start="2020-04-06" duration="1" complete="0" thirdDate="2020-03-24" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Shunbo Cui" function="Default:1" contacts="cuis13@mcamster.ca" phone="3658881549"/>
+        <resource id="1" name="Shuo Zhang" function="Default:0" contacts="zhans18@mcmaster.ca" phone=""/>
+        <resource id="2" name="Xiangxin Kong" function="Default:0" contacts="kongx9@mcmaster.ca" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="7" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="25" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="26" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="30" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="0" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="7" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="43" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="46" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="48" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="0" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="7" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="37" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="39" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="41" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles>
+        <role id="1" name="Document Manager"/>
+    </roles>
+</project>
