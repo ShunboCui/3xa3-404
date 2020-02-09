@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2020-01-14" view-index="0" gantt-divider-location="288" resource-divider-location="300" version="2.8.10" locale="zh_CN">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2020-01-31" view-index="0" gantt-divider-location="288" resource-divider-location="300" version="2.8.10" locale="zh_CN">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
         <field id="tpd3" name="名称" width="160" order="0"/>
         <field id="tpd4" name="开始日期" width="62" order="1"/>
         <field id="tpd5" name="结束日期" width="62" order="2"/>
+        <option id="color.recent"><![CDATA[#ffff00 #ffff33 #ff3366]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="名称" width="210" order="0"/>
@@ -45,12 +46,12 @@
             <task id="48" name="Project review" color="#8cb6ce" meeting="false" start="2020-01-30" duration="1" complete="0" thirdDate="2020-01-14" thirdDate-constraint="0" expand="true"/>
         </task>
         <task id="4" name="Requirements Document Revision 0" color="#8cb6ce" meeting="false" start="2020-02-03" duration="4" complete="0" thirdDate="2020-01-30" thirdDate-constraint="0" expand="true"/>
-        <task id="7" name="Proof of Concept Demonstration" color="#8cb6ce" meeting="false" start="2020-02-13" duration="6" complete="0" thirdDate="2020-01-28" thirdDate-constraint="0" expand="true"/>
-        <task id="8" name="Test Plan Revision 0" color="#8cb6ce" meeting="false" start="2020-02-07" duration="15" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="true"/>
-        <task id="11" name="Desigon &amp; Document Recision 0" color="#8cb6ce" meeting="false" start="2020-02-28" duration="10" complete="0" thirdDate="2020-02-24" thirdDate-constraint="0" expand="true"/>
-        <task id="14" name="Revision 0 Demonstration" color="#8cb6ce" meeting="false" start="2020-03-16" duration="6" complete="0" thirdDate="2020-03-04" thirdDate-constraint="0" expand="true"/>
-        <task id="16" name="Final Demonstration (Revision 1)" color="#8cb6ce" meeting="false" start="2020-03-30" duration="5" complete="0" thirdDate="2020-03-09" thirdDate-constraint="0" expand="true"/>
-        <task id="18" name="Final Documentation (Recision 1)" color="#8cb6ce" meeting="false" start="2020-04-06" duration="1" complete="0" thirdDate="2020-03-24" thirdDate-constraint="0" expand="true"/>
+        <task id="7" name="Proof of Concept Demonstration" color="#ff3366" meeting="false" start="2020-02-13" duration="6" complete="0" thirdDate="2020-01-28" thirdDate-constraint="0" expand="true"/>
+        <task id="8" name="Test Plan Revision 0" color="#ff3366" meeting="false" start="2020-02-07" duration="15" complete="0" thirdDate="2020-02-03" thirdDate-constraint="0" expand="true"/>
+        <task id="11" name="Desigon &amp; Document Recision 0" color="#ff3366" meeting="false" start="2020-02-28" duration="10" complete="0" thirdDate="2020-02-24" thirdDate-constraint="0" expand="true"/>
+        <task id="14" name="Revision 0 Demonstration" color="#ffff33" meeting="false" start="2020-03-16" duration="6" complete="0" thirdDate="2020-03-04" thirdDate-constraint="0" expand="true"/>
+        <task id="16" name="Final Demonstration (Revision 1)" color="#ffff00" meeting="false" start="2020-03-30" duration="5" complete="0" thirdDate="2020-03-09" thirdDate-constraint="0" expand="true"/>
+        <task id="18" name="Final Documentation (Recision 1)" color="#ffff00" meeting="false" start="2020-04-06" duration="1" complete="0" thirdDate="2020-03-24" thirdDate-constraint="0" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Shunbo Cui" function="Default:1" contacts="cuis13@mcamster.ca" phone="3658881549"/>
