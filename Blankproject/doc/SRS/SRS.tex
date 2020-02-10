@@ -74,18 +74,17 @@ The purpose of the software application, Snake-game-remake, is to provide an enj
 \subsection{The Stakeholders}
 
 \subsubsection{The Client}
+The client of our product is an external entity who is acting as the final reviewer of our game. They are an entity interested in remaking the "snake game" for general public.
 
 \subsubsection{The Customers}
-
-\subsubsection{Other Stakeholders}
+The customer is the general public who has interest in video game.
 
 \subsection{Mandated Constraints}
-
-\subsection{Naming Conventions and Terminology}
+The game is only intended for use on Java virtual machine run on windows or OS X.
+The only input methods allowed are with a cursor (mouse/trackpad) and a keyboard. 
 
 \subsection{Relevant Facts and Assumptions}
-
-User characteristics should go under assumptions.
+It is assumed that the target demographic has access to traditional computers with a mouse and keyboard.It is assumed that Windows and Mac OS X will be available for both the developers and users of the game.
 
 \section{Functional Requirements}
 
@@ -159,14 +158,74 @@ The product is designed to be used by those teenagers who enjoy video game exper
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Performance Requirements}
 
+
+\subsubsection{Speed and Latency Requirements}
+\label{ssub:speed_and_latency_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}1. ]
+	\item Any valid user input shall receive an immediate response by the game in a manner instantaneous to the user’s perception (under 50ms).
+	\item Game initialization upon opening the application shall be less than 10 seconds.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Precision or Accuracy Requirements}
+\label{ssub:precision_or_accuracy_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}1. ]
+	\item All stats of snake must be an integer value.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Reliability and Availability Requirements}
+\label{ssub:reliability_and_availability_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}1. ]
+	\item The software must be able to initialize and operate normally, not necessarily continuously, at any time.
+\end{enumerate}
+% End SubSubSection
+
+
+
 \subsection{Operational and Environmental Requirements}
 
+
+
 \subsection{Maintainability and Support Requirements}
+\label{sub:maintainability_and_support_requirements}
+% Begin SubSection
+
+\subsubsection{Maintenance Requirements}
+\label{ssub:maintenance_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{MS}1. ]
+	\item The properties of game elements shall be updated appropriately to ensure game balance.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Supportability Requirements}
+\label{ssub:supportability_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{MS}1. ]
+	\item The game will have a feedback and support service.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Adaptability Requirements}
+\label{ssub:adaptability_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{MS}1. ]
+	\item The game shall be updated based on user feedback and feature suggestions.
+\end{enumerate}
+% End SubSubSection
+
+% End SubSection
+
+
 
 \subsection{Security Requirements}
 \begin{enumerate}[{SR}1. ]
-	\item The game shall not pass any variable, command or program to the player’s local machine.
-	\item The game shall not store any information of the player’s local machine.
+	\item  The product shall not interact with any personal user data.
+	\item  User data shall be kept private.
 \end{enumerate}
 
 \subsection{Cultural Requirements}
@@ -183,7 +242,6 @@ The product is designed to be used by those teenagers who enjoy video game exper
 \subsection{Health and Safety Requirements}
 \begin{enumerate}[{HS}1. ]
 	    \item Cacophony shall not be selected as the game sound.
-	    \item There shall be tips in the game that remind the player not to be addicted to playing games
 \end{enumerate}
 
 
