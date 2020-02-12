@@ -3,6 +3,18 @@ import random
 
 CELL_SIZE = 8
 
+themap=[]
+theframe=[]
+for counteri in range(-1,51):
+    if counteri==-1 or counteri==50:
+        for counterj in range(-1,51):
+            theframe.append((counteri,counterj))
+    else:
+        theframe.append((counteri,-1))
+        theframe.append((counteri,50))
+#themap=theframe[:]
+themap = theframe[:] + [(20, 5),(20, 6),(20, 7),(20, 8),(20, 9),(20, 10),(20, 44),(20, 43),(20 ,42),(20, 41),(20, 40),(20, 39),(20, 38),(20, 37),(20, 36),(20, 35),(20, 11),(20, 12),(20, 13),(20 ,14),(20, 15)]
+
 class LifeBoardsnake:
     "Game of Life board, a rectangular board with live and dead cells"
 
@@ -15,11 +27,31 @@ class LifeBoardsnake:
         self.generator=0
         self.direction=None
         self.switch=1
+        
+        ##############################################################################
+        mapdrawer= turtle.Turtle()
+        mapdrawer.hideturtle()
+        mapdrawer.clear()
+        mapdrawer.color('red')
+        mapdrawer.setheading(0)
+        for [x, y] in themap:
+            mapdrawer.penup()
+            mapdrawer.setpos(x * CELL_SIZE, y * CELL_SIZE)
+            mapdrawer.pendown()
+            mapdrawer.begin_fill()
+            for i in range(4):
+                mapdrawer.forward(CELL_SIZE - 1)
+                mapdrawer.left(90)
+            mapdrawer.end_fill()
+        mapdrawer.penup()
+        turtle.update()
+        ##############################################################################
+        
     def newfood(self):
         "Fill the board with a random pattern"
         if self.generator==1:
             j, k = random.randint(0,self.width), random.randint(0,self.height)
-            if (j,k) in self.body or (j,k)==self.head:
+            if (j,k) in self.body or (j,k)==self.head or (j,k) in themap:
                 self.newfood()
             else:
                 self.food=(j,k)
@@ -36,12 +68,17 @@ class LifeBoardsnake:
         if self.direction!='up' and self.direction!='down': self.direction='down'
     def w(self):
         if self.direction!='up' and self.direction!='down': self.direction='up'
-
+    def q(self):#######
+        turtle.bye()##############
     def step(self):
         "Compute the next generation according to Conway's rule."
-        if self.head in self.body or self.head[0]<-10 or self.head[0]>self.width or \
-        self.head[1]<-10 or self.head[1]>self.height:
+        ###########
+        if self.head in self.body or self.head in themap:
             self.switch=0
+        #############
+        #if self.head in self.body or self.head[0]<0 or self.head[0]>=self.width or \
+        #self.head[1]<0 or self.head[1]>=self.height:
+        #    self.switch=0
         self.body.insert(0,self.head)
         if self.direction=='up':
             self.head=(self.head[0],self.head[1]+1)
@@ -90,8 +127,12 @@ class LifeBoardsnake:
 
 def main():
     # set up window
-    width, height = turtle.screensize()
-    turtle.setworldcoordinates(0, - 20, width, height - 20)
+    #######
+    #screen = turtle.Screen()
+    #############
+    turtle.screensize(400,420,'white')
+    width, height = 400,400
+    turtle.setworldcoordinates(0, -20, width, height)
     turtle.title('Game of Snake')
 
     # write instructions
@@ -106,7 +147,7 @@ def main():
     turtle.hideturtle()
     turtle.speed('fastest')
     turtle.tracer(0, 0) # turn off animation; update() needs to be called
-    board = LifeBoardsnake(width // CELL_SIZE, (height - 20) // CELL_SIZE)
+    board = LifeBoardsnake(width // CELL_SIZE, height // CELL_SIZE)
     #board.makeRandom()
     board.display()
 
@@ -124,7 +165,6 @@ def main():
     def d():
         board.d()
     turtle.onkey(d, 'd')
-
     turtle.onkey(turtle.bye, 'q')
 
     def perform_step():
@@ -141,11 +181,21 @@ def main():
             writer.write("GAME OVER", font=('sans-serif', 72, 'normal'))
             writer.penup()
             writer.setposition(145,45)
-            writer.write('Press (Q) to quit', font=('sans-serif', 18, 'normal'))
+            writer.write('Press (Q) to quit\nPress (Z) to replay', font=('sans-serif', 18, 'normal'))
     perform_step()
     
+    def newgame():
+        if board.switch==0:
+            writer.clear()
+            writer.pencolor('black')
+            writer.penup()
+            writer.setposition(5, -15)
+            writer.write("W)move to upsite   S)move to downsite   A)move to leftsite\
+            D)move to rightsite    Q)uit", font=('sans-serif', 14, 'normal'))
+            board.__init__(width // CELL_SIZE, height // CELL_SIZE)
+            perform_step()
+    turtle.onkey(newgame,'z')
     # set focus on screen and enter the main loop
     turtle.listen()
     turtle.mainloop()
-
-main()
+main() 
