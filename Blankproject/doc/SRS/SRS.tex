@@ -1,8 +1,22 @@
 \documentclass[12pt, titlepage]{article}
 
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{changepage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{extarrows}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage{color}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{float}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -12,22 +26,22 @@
 }
 \usepackage[round]{natbib}
 
-\title{SE 3XA3: Software Requirements Specification\\Title of Project}
+\title{SE 3XA3: Software Requirements Specification\\\textbf{Snake Game Remake}}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team \#: 302, Team Name: 404
+		\\ Student: Shunbo Cui	cuis13
+		\\ Student: Xiangxin Kong	kongx9
+		\\ Student: Shuo Zhang	zhans18
 }
 
-\date{\today}
 
-\input{../Comments}
+\date{February 9, 2020}
+
+%\input{../Comments}
 
 \begin{document}
 
 \maketitle
-
 \pagenumbering{roman}
 \tableofcontents
 \listoftables
@@ -38,7 +52,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
+Feb 9,2020 & 1.0 & creating the document\\
 Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
@@ -51,85 +65,219 @@ Date 2 & 1.1 & Notes\\
 This document describes the requirements for ....  The template for the Software
 Requirements Specification (SRS) is a subset of the Volere
 template~\citep{RobertsonAndRobertson2012}.  If you make further modifications
-to the template, you should explicity state what modifications were made.
+to the template, you should explicitly state what modifications were made.
 
 \section{Project Drivers}
 
 \subsection{The Purpose of the Project}
-
+The purpose of the software application, Snake-game-remake, is to provide an enjoyable and challenging gaming experience for the user. It is inspired by the games \href{https://github.com/mtala3t/Snake-Java-2D-Game}{Snake-Java-2D-game} in that it focuses on the growth of a snake character through consuming objects throughout the in-game environment. The snake will be a dynamic entity that moves automatically with a constant speed, unless it gains the effect from specific items. The player can adjust the direction to left or right. The player has to operate the snake to avoid collision with the walls and barriers in the map, while also collecting the food items in the map to achieve a higher score. In order to improve the complexity of the game, more in-game functions will be provided such as random potions and trap items.
 \subsection{The Stakeholders}
 
 \subsubsection{The Client}
+The client of our product is an external entity who is acting as the final reviewer of our game. They are an entity interested in remaking the "snake game" for the general public.
 
 \subsubsection{The Customers}
-
-\subsubsection{Other Stakeholders}
+The customer is the general public, especially teenagers, who have little leisure time but great interest in video games.
 
 \subsection{Mandated Constraints}
-
-\subsection{Naming Conventions and Terminology}
+The game is only intended for use on Java virtual machines run on windows or OS X.
+The only input methods allowed are with a cursor (mouse/trackpad) and a keyboard. 
 
 \subsection{Relevant Facts and Assumptions}
-
-User characteristics should go under assumptions.
+It is assumed that the target demographic has access to traditional computers with a mouse and keyboard.It is assumed that Windows and Mac OS X will be available for both the developers and users of the game.
 
 \section{Functional Requirements}
 
 \subsection{The Scope of the Work and the Product}
 
 \subsubsection{The Context of the Work}
-
+Some important functions are absent in this game such as leader board and restart option when game is over. Also, the choices of maps for this game are limited and the original design for the interface is rough and simple. We are going to reconstruct the user interface to enhance user experience. More gaming systems such as utility items will be introduced to the game to improve the complexity of the game. Our game is a lightweight Java game on PC which can be played by all ages especially teenagers. All the additional functions will be implemented in individual Java modules with high cohesion.
 \subsubsection{Work Partitioning}
-
+	\begin{table}[H]
+	\caption{Work Partitioning}
+        \begin{adjustwidth}{-2.75cm}{}
+    \begin{tabular}{|c|c|c|p{5cm}|}
+    \hline
+    Event Name & Input & Output & Summary\\
+    \hline
+    Snake Game Creation & Developer code & Java Virtual Machine & Recreate a Java based game implementation that works on Java Virtual Machine.\\
+    \hline
+    Snake Game Audio & Audio File & Audio output device & Adding more sound effects into the game.\\
+    \hline
+    Snake Game Sprite & Developer graphics and code & Java Virtual Machine & Adding more functions of the spirits and objects to the game.\\
+    \hline
+    Snake Game Collisions & Developer code & Java Virtual Machine & Creating hit detection and ending screen. \\
+    \hline
+    Snake Game Final Edits & Developer code & Java Virtual Machine & Finishing edits for the whole project.\\
+    \hline
+    \end{tabular}
+	    \end{adjustwidth}
+	\end{table}
 \subsubsection{Individual Product Use Cases}
-
+The product is designed to be used by those teenagers who enjoy video game experience. As a successful game on Nokia phones in the 1990s, it requires both quick reactions and forethought. Our product will provide improved experience of challenging themselves to get a higher score on the leaderboard. As an open-source project on public Git repository, our code also provides educational support to the developers who are interested in similar projects.
 \subsection{Functional Requirements}
-
+\begin{enumerate}[{FR}1.]
+    \item The program will be able to run on a Java virtual machine.
+    \item The game will show the main title screen when the program is successfully started.
+    \item The system will adjust the speed of the snake and the maximum number of in-game items when the user selects different difficulties on the title screen.
+    \item The player will be able to choose the game map they want to play on the title screen.
+    \item When the start game button on the title screen is pressed, a new game will be started and the gaming screen will be shown.
+    \item At the start state of the game, a snake with length of 2 and default direction to the right will be generated in the middle of the map.
+    \item The snake will start moving when the player presses the space button and a sound effect will be played.
+    \item A food item will be generated at a random empty location inside the border of the map after the player pushes the space button to start.
+    \item When the player presses the pause button, the pause screen will be shown.
+    \item When the player presses the pause button on the pause state, the playing screen will be shown again.
+    \item On the pause screen, a list of buttons including go back to the title screen and restart game will be shown.
+    \item Every time when the snake's head reaches the existing food item, the length of the snake will increase by 1 at the tail and the score will increase, also the sound effect will be played.
+    \item The food collected by the snake will be removed from the map and a new food item will be generated at random empty locations at the same time.
+    \item The current length, effect and score should be always shown on the gaming screen.
+    \item After a set time period, a new effect item will be generated on a random empty location on the map until the maximum number of items is reached.
+    \item When the snake reaches the effect item, the item is removed from the map and the corresponding effect will be applied on the snake; if there is already effect on the snake, it will be replaced with the new one.
+    \item When the snake's head hits the border wall, the barrier in the map or the snake body, the game will be stopped and a game-over screen will be shown.
+    \item The player will be able to restart the game or go back to the title screen with the buttons on the game-over screen.
+    \item The player will be able to activate the color blind option with a button on the title screen.
+    \item The colors used in the game will be adjusted to be better visible by  colourblind people when the color-blind mode is activated.
+\end{enumerate}
 \section{Non-functional Requirements}
 
 \subsection{Look and Feel Requirements}
-
+\begin{enumerate}[{LF}1. ]
+	\item The game will follow Java coding structure.
+	\item The game shall be two-dimensional in design.
+	\item The game should use colors that make players  easily identify the objects in the game.
+\end{enumerate}
 \subsection{Usability and Humanity Requirements}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}[{UH}1. ]
+	\item  Players shall be able to customize the color for the snake before playing.
+	\item There shall be a help page available for users to find the controls and descriptions of items.
+	\item The game shall provide the objective of the game on the homepage.
+	\item The game shall be accessible for deaf users.
+	\item The game shall be playable by users with at least a single fully functional hand.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Performance Requirements}
+
+
+\subsubsection{Speed and Latency Requirements}
+\label{ssub:speed_and_latency_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}1. ]
+	\item Any valid user input shall receive an immediate response by the game in a manner instantaneous to the user’s perception (under 50ms).
+	\item Game initialization upon opening the application shall be less than 10 seconds.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Precision or Accuracy Requirements}
+\label{ssub:precision_or_accuracy_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}1. ]
+	\item All stats of the snake must be an integer value.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Reliability and Availability Requirements}
+\label{ssub:reliability_and_availability_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{PR}1. ]
+	\item The software must be able to initialize and operate normally, not necessarily continuously, at any time.
+\end{enumerate}
+% End SubSubSection
+
+
 
 \subsection{Operational and Environmental Requirements}
 
+
+
 \subsection{Maintainability and Support Requirements}
+\label{sub:maintainability_and_support_requirements}
+% Begin SubSection
+
+\subsubsection{Maintenance Requirements}
+\label{ssub:maintenance_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{MS}1. ]
+	\item The properties of game elements shall be updated appropriately to ensure game balance.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Supportability Requirements}
+\label{ssub:supportability_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{MS}1. ]
+	\item The game will have feedback and support service.
+\end{enumerate}
+% End SubSubSection
+
+\subsubsection{Adaptability Requirements}
+\label{ssub:adaptability_requirements}
+% Begin SubSubSection
+\begin{enumerate}[{MS}1. ]
+	\item The game shall be updated based on user feedback and feature suggestions.
+\end{enumerate}
+% End SubSubSection
+
+% End SubSection
+
+
 
 \subsection{Security Requirements}
+\begin{enumerate}[{SR}1. ]
+	\item  The product shall not interact with any personal user data.
+	\item  User data shall be kept private.
+\end{enumerate}
 
 \subsection{Cultural Requirements}
-
+\begin{enumerate}[{CR}1. ]
+	\item The system shall not show any religious imagery or messages.
+\end{enumerate}
 \subsection{Legal Requirements}
-
+\begin{enumerate}[{LR}1. ]
+	    \item This software shall comply with all national and federal software regulation laws.
+        \item This software shall comply with all relevant software standards.
+        \item This software shall comply with all relevant privacy acts.
+        \item Design shall follow Google Java Style Guide
+\end{enumerate}
 \subsection{Health and Safety Requirements}
+\begin{enumerate}[{HS}1. ]
+	    \item Cacophony shall not be selected as the game sound.
+\end{enumerate}
 
-This section is not in the original Volere template, but health and safety are
-issues that should be considered for every engineering project.
 
 \section{Project Issues}
 
 \subsection{Open Issues}
-
+    The renewal period of software and hardware shortens continuously. These changes may make the game no longer playable or run with bugs. Apart from that, many devices do not have a physical keyboard. Users of these devices may not be able to play this game.
 \subsection{Off-the-Shelf Solutions}
-
+    Snake game is a very classic game that has been implemented in many languages. These products have the same core game rules game but different add-ons. Some of them add multiplayer options in the game. Some others focus on adding more scenarios, game modes or more items. A java based product called "Snake2D" can be used as the prototype of this project. Other products on GitLab can be treated as source of code.
 \subsection{New Problems}
-
+%%%%%%%%%%%%%
+\subsubsection{current environment}
+    Although most of the snake games online are open source projects, there are still many snake games with copyrights. The developing team should be careful not to breach copyright laws.
+\subsubsection{existing users}
+    Color-blind users may have a hard time identifying the snake and items in the game.
+\subsubsection{Limitations in implementation environment}
+    The java virtual machine on the local machine of the developing team processes the code slowly. (long processing time).
+\subsubsection{problem from "solution"}
+    None.
+%%%%%%%%%%%%%
 \subsection{Tasks}
+    The plan for the delivery of the project and each member's role in every delivery are covered by the Gantt chart located in the "project schedule" file in the project. The plan for the meeting is covered in "development plan". In the Gantt chart, phase one tasks are in light blue color that shows the developing team will be working on structuring the project. Phase two tasks are in red color that shows the team will be constructing and building tests for the project. Also, there will be changes in requirements in phase two. The final phase tasks are colored in yellow that shows the developing team has completed the coding part of the project and will be in progress in modifying documents and code for the final product.
 
 \subsection{Migration to the New Product}
-
+    None.\\This project will only be used in the device that supports java.
 \subsection{Risks}
-
+    None. As a software product, there is no physical damage to users. However there might be a risk that some users will be addicted to the game.
 \subsection{Costs}
-
+    As this project will be available on GitLab, there will be no cost for downloading the game. But in order to play this game, users need a device that supports java and is able to connect a keyboard.
 \subsection{User Documentation and Training}
-
+    Instructions will be shown in the game. There is no need for a separate user documentation file to guide users. Users can get training by playing this game.
 \subsection{Waiting Room}
+	A possible improvement of the original project multiplayer option can be added to the game to let two players compete for food and items. This will make the game more competitive and attractive to the target users of this product. Then, the game only has one music sound that is played throughout the game. Adding more sounds will also improve the user experience.
 
 \subsection{Ideas for Solutions}
-
+    For the multiplayer option, the second snake feature can be introduced into the game interface with different control buttons and color from the first snake. The two snakes will compete on their scores gaining from eating food. They will also compete for items and avoid hitting on each other. For new sounds, they will be selected from online music records that have no copyright. Background music shall differ in different maps.
 \bibliographystyle{plainnat}
 
 \bibliography{SRS}
@@ -148,3 +296,5 @@ Their values are defined in this section for easy maintenance.
 
 
 \end{document}
+
+
