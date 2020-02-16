@@ -1,7 +1,7 @@
 /*
  * Main.java
  *
- * Created on 23 ����, 2007, 06:25 �
+ * Created on 23 闱礞, 2007, 06:25 �
  *
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -38,13 +38,14 @@ public class MainScreen extends JFrame implements ActionListener {
 		buttonPanel = new MainScreenPanel();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(320, 127, 600, 400);
+		setBounds(0, 0, 600, 400);
 		setResizable(false);
-		buttonPanel.setBackground(Color.BLACK);
-		for (int i = 0; i < levels.length; i++) {
+		buttonPanel.setBackground(Color.black);//背景颜色
+		
+		for (int i = 0; i < levels.length; i++) {//添加按钮
 			levels[i] = new JRadioButton(levelStrings[i]);
 			levels[i].addActionListener(this);
-			levels[i].setBackground(Color.YELLOW);
+			levels[i].setBackground(Color.yellow);//按钮颜色
 			levels[i].setBounds(260, 200 + i * 50, 80, 30);
 			buttonPanel.add(levels[i]);
 		}
@@ -58,26 +59,13 @@ public class MainScreen extends JFrame implements ActionListener {
 		Object obj = e.getSource();
 
 		if (obj == levels[0]) {
-
 			new GameBoardWindow(1);
-			setVisible(false);
-			dispose();
-
-		}
-
-		if (obj == levels[1]) {
-
+		}else if (obj == levels[1]) {
 			new GameBoardWindow(2);
-			setVisible(false);
-			dispose();
-		}
-
-		if (obj == levels[2]) {
-
+		}else{
 			new GameBoardWindow(3);
-			setVisible(false);
-			dispose();
 		}
+		dispose();
 	}
 
 	@SuppressWarnings("serial")

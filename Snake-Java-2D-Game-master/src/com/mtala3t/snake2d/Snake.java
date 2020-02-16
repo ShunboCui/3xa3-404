@@ -1,7 +1,7 @@
 /*
  * SnakeBody.java
  *
- * Created on 22 ãÇíæ, 2007, 10:54 Õ
+ * Created on 22 ï¿½ï¿½ï¿½ï¿½, 2007, 10:54 ï¿½
  *
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.

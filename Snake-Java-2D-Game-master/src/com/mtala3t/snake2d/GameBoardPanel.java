@@ -28,7 +28,7 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 	private SnakeFood snakeFood;
 
 	private InputManger inputManager;
-	private SoundManger soundManger = null;
+	private SoundManger soundManger;
 
 	private Timer gameThread;
 	private Timer timerThread;
@@ -38,7 +38,7 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 	private int timer = 0;
 	private int playerScore = 0;
 
-	private String soundFilePath = "start.wav";
+	private String soundFilePath = "start.wav";	// BGM
 
 	public GameBoardPanel(int level) {
 
@@ -51,7 +51,7 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 		inputManager = new InputManger(this);
 		soundManger = new SoundManger(soundFilePath);
 
-		gameThread = new Timer(getDelay(level), this);
+		gameThread = new Timer(140/level, this);
 
 		timerThread = new Timer(1000, new ActionListener() {
 
@@ -73,25 +73,9 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 
 	}
 
-	private int getDelay(int level) {
-
-		int delay = 0;
-
-		if (level == 1) {
-			delay = 140;
-		} else if (level == 2) {
-			delay = 70;
-
-		} else if (level == 3) {
-			delay = 40;
-
-		}
-		return delay;
-	}
-
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-
+		System.out.println("BE call");
 		doDrawing(g);
 	}
 
@@ -202,7 +186,7 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 		}
 	}
 
-	public boolean isBoundryCollisioned() {
+	private boolean isBoundryCollisioned() {
 		if (snake.getDirection() == 1) {
 			double centerY = ((Ellipse2D.Double) snake.getSnakeBody().get(0))
 					.getMinY();
@@ -222,7 +206,7 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 		return false;
 	}
 
-	public boolean isSelfCollisioned() {
+	private boolean isSelfCollisioned() {
 
 		if (snake.getDirection() == 1) {
 			for (int i = 1; i < snake.getSnakeBody().size(); i++) {
@@ -273,7 +257,7 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 
 	}
 
-	public boolean isFoodCollisioned() {
+	private boolean isFoodCollisioned() {
 
 		boolean collisionedWithFood = false;
 

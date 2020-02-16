@@ -1,7 +1,7 @@
 /*
  * GameLoader.java
  *
- * Created on 22 ãÇíæ, 2007, 10:54 Õ
+ * Created on 22 ï¿½ï¿½ï¿½ï¿½, 2007, 10:54 ï¿½
  *
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -25,11 +25,10 @@ import javax.swing.JMenuItem;
 @SuppressWarnings("serial")
 public class GameBoardWindow extends JFrame implements ActionListener {
 
-	private JMenuBar menuBar = null;
-	private JMenu fileMenu = null;
-
-	private JMenuItem newGameMenuItem = null;
-	private JMenuItem exitGameMenuItem = null;
+	private JMenuBar menuBar;
+	private JMenu fileMenu;
+	private JMenuItem newGameMenuItem ;
+	private JMenuItem exitGameMenuItem;
 
 	public GameBoardWindow(int level) {
 
