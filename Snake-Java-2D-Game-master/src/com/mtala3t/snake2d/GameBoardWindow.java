@@ -12,6 +12,7 @@ package com.mtala3t.snake2d;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.accessibility.Accessible;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -37,23 +38,21 @@ public class GameBoardWindow extends JFrame implements ActionListener {
 		setBounds(100, 5, 1100, 700);
 		setResizable(false);
 
-		getContentPane().add(new GameBoardPanel(level));
+		add(new GameBoardPanel(level));//容器添加
 
-		menuBar = new JMenuBar();
-
-		fileMenu = new JMenu("File");
-
-		newGameMenuItem = new JMenuItem("New Game");
+		newGameMenuItem = new JMenuItem("New Game");//顶层菜单
 		exitGameMenuItem = new JMenuItem("Exit");
 
+		fileMenu = new JMenu("File");
 		fileMenu.add(newGameMenuItem);
 		fileMenu.add(exitGameMenuItem);
 
+		menuBar = new JMenuBar();
 		menuBar.add(fileMenu);
 
 		setJMenuBar(menuBar);
 
-		newGameMenuItem.addActionListener(this);
+		newGameMenuItem.addActionListener(this);//继承自Abstract button，接收ActionListener
 		exitGameMenuItem.addActionListener(this);
 
 		setVisible(true);
@@ -66,9 +65,7 @@ public class GameBoardWindow extends JFrame implements ActionListener {
 		Object source = event.getSource();
 
 		if (source == newGameMenuItem) {
-			setVisible(false);
 			dispose();
-
 			new MainScreen();
 		}
 

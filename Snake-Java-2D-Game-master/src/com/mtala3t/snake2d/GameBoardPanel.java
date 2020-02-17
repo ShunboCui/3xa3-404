@@ -41,7 +41,6 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 	private String soundFilePath = "start.wav";	// BGM
 
 	public GameBoardPanel(int level) {
-
 		setBackground(Color.BLACK);
 		setFocusable(true);
 
@@ -51,23 +50,9 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 		inputManager = new InputManger(this);
 		soundManger = new SoundManger(soundFilePath);
 
-		gameThread = new Timer(140/level, this);
+		gameThread = new Timer(140/level, this);//每隔delay毫秒，调用一次对象的actionPerform
 
-		timerThread = new Timer(1000, new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				if (isGameOver()) {
-					stopGame();
-				}
-
-				timer++;
-			}
-		});
-
-		// timerThread.setLogTimers(true);
-		// gameThread.setLogTimers(true);
+		timerThread = new Timer(1000, e -> timer++);
 
 		addKeyListener(inputManager);
 
@@ -75,30 +60,18 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		System.out.println("BE call");
-		doDrawing(g);
-	}
-
-	public void doDrawing(Graphics g) {
 
 		Graphics2D g2 = (Graphics2D) g;
 
 		if (isGameRunning()) {
-
 			snake.move();
-
 			checkCollision();
-
 			DrawSnakeFood(g2);
-
 		}
 
 		DrawStatusbar(g2);
-
 		DrawBoundry(g2);
-
 		DrawSnake(g2);
-
 	}
 
 	public void DrawBoundry(Graphics2D g2) {
@@ -106,7 +79,7 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 			Rectangle2D.Double rect = new Rectangle2D.Double(227.0 - i,
 					127.0 - i, 624, 480);
 
-			g2.setColor(Color.YELLOW);
+			g2.setColor(Color.YELLOW);//边框颜色
 
 			g2.draw(rect);
 
@@ -120,7 +93,6 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 			if (i == 0) {
 				g2.setColor(Color.RED);
 				g2.fill(snake.getSnakeBody().get(i));
-
 			} else {
 				g2.setColor(Color.ORANGE);
 				g2.draw(snake.getSnakeBody().get(i));
@@ -338,10 +310,6 @@ public class GameBoardPanel extends JPanel implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-
-		repaint();
-
-	}
+	public void actionPerformed(ActionEvent arg0) {repaint();}//每隔delay毫秒被调用一次
 
 }
