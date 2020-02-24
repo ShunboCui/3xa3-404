@@ -49,7 +49,7 @@ public class SoundManger {
 		private AudioInputStream audioInputStream;
 		private SourceDataLine sourceDataLine;
 
-		private String filePath = null;
+		private String filePath = "start.wav";//
 
 		public PlayThread(String filePath) {
 			this.filePath = filePath;
